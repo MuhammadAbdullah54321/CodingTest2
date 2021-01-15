@@ -7,10 +7,7 @@ const image = require('./controllers/image.controller.js');
 // create express app
 const app = express();
 app.use(cors());
-// parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
-
-// parse requests of content-type - application/json
 app.use(bodyParser.json())
 
 
@@ -32,9 +29,10 @@ mongoose.connect(dbConfig.url, {
 
 // define a simple route
 app.get('/', (req, res) => {
-    res.json({"message": "Welcome to EasyNotes application. Take notes quickly. Organize and keep track of all your notes."});
+    res.json({"message": "This is the best random Image displayer in the world "});
 });
 
+//This is the main route of our application
 app.get('/retrieve-img', image.findOne);
 
 // listen for requests
